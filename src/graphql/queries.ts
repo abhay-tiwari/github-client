@@ -10,7 +10,7 @@ export const GET_REPOSITORIES_QUERY = gql`
           name
           pushedAt
           description
-          pullRequests(first: 10) {
+          pullRequests(first: 100) {
             nodes {
               closed
               title
@@ -30,6 +30,27 @@ export const GET_REPOSITORIES_QUERY = gql`
           endCursor
           hasNextPage
         }
+      }
+    }
+  }
+`;
+
+export const CREATE_REPOSITORY = gql`
+  mutation CreateRepository(
+    $name: String!
+    $description: String
+    $visibility: RepositoryVisibility!
+  ) {
+    createRepository(
+      input: { name: $name, description: $description, visibility: $visibility }
+    ) {
+      repository {
+        id
+        name
+        owner {
+          login
+        }
+        url
       }
     }
   }
