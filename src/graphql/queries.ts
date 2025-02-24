@@ -8,6 +8,23 @@ export const GET_REPOSITORIES_QUERY = gql`
         nodes {
           id
           name
+          pushedAt
+          description
+          pullRequests(first: 10) {
+            nodes {
+              closed
+              title
+              changedFiles
+              merged
+              id
+              number
+            }
+          }
+          primaryLanguage {
+            color
+            id
+            name
+          }
         }
         pageInfo {
           endCursor

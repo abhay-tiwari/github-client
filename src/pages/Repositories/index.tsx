@@ -1,4 +1,9 @@
-import { CircularProgress, Container, Typography } from "@material-ui/core";
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
 import { Alert } from "@material-ui/lab";
 import { useRepositoriesPage } from "./operations";
@@ -22,7 +27,11 @@ const RepositoriesPage = () => {
         </Alert>
       )}
 
-      {!loading && !error && <RepositoriesList repositories={repositories} />}
+      {!loading && !error && (
+        <Box marginTop={4}>
+          <RepositoriesList repositories={repositories} />
+        </Box>
+      )}
     </Container>
   );
 };
