@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import { Box, Card, Grid, List, ListItem, Typography } from "@material-ui/core";
+import { Box, Card, List, ListItem, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import { RepositoriesListProps } from "./types";
 import { PullRequest, Repository } from "../../pages/Repositories/types";
 import { formatDate } from "../../utils/dates";
 import CustomDialog from "../Dialog";
-import { useStyles } from "./styles";
 
 const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [pullRequests, setPullRequests] = useState<PullRequest[]>();
-
-  const styles = useStyles();
 
   return (
     <>
       <Grid container spacing={3}>
         {repositories.map((repo: Repository) => {
           return (
-            <Grid item key={repo.id} xs={6} sm={3}>
+            <Grid key={repo.id} size={4}>
               <Card
                 style={{ padding: "1.5rem" }}
                 onClick={() => {
@@ -79,8 +77,32 @@ const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
                 <Box width="100%">
                   <Box>{x.title}</Box>
                   <Box marginTop={1}>
-                    {x.merged && <span className={styles.merged}>Merged</span>}
-                    {x.closed && <span className={styles.closed}>Closed</span>}
+                    {x.merged && (
+                      <span
+                        style={{
+                          backgroundColor: "green",
+                          padding: "0.25rem",
+                          borderRadius: "0.25rem",
+                          color: "white",
+                          fontSize: "0.75rem",
+                        }}
+                      >
+                        Merged
+                      </span>
+                    )}
+                    {x.closed && (
+                      <span
+                        style={{
+                          backgroundColor: "red",
+                          padding: "0.25rem",
+                          borderRadius: "0.25rem",
+                          color: "white",
+                          fontSize: "0.75rem",
+                        }}
+                      >
+                        Closed
+                      </span>
+                    )}
                   </Box>
                 </Box>
               </ListItem>

@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RepositoriesPage from "./pages/Repositories";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={RepositoriesPage} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<RepositoriesPage />} />
+      </Routes>
     </Router>
   );
 };

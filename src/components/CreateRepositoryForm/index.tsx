@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Button, Input, TextareaAutosize } from "@material-ui/core";
+import { Box, Button, Input, TextareaAutosize, Alert } from "@mui/material";
 import useCreateRepositoryForm from "./operations";
-import { Alert } from "@material-ui/lab";
 
 const CreateRepositoryForm = () => {
   const {

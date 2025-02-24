@@ -1,14 +1,17 @@
-import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
-import { useStyles } from "./styles";
+import { AppBar, Container, Toolbar, Typography } from "@mui/material";
 
 const Navbar = () => {
-  const classes = useStyles();
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
             Github Client
           </Typography>
         </Toolbar>

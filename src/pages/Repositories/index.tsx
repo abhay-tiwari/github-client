@@ -4,11 +4,10 @@ import {
   CircularProgress,
   Container,
   Typography,
-} from "@material-ui/core";
+  Alert,
+} from "@mui/material";
 import React from "react";
-import { Alert } from "@material-ui/lab";
 import { useRepositoriesPage } from "./operations";
-import { useStyles } from "./styles";
 import RepositoriesList from "../../components/RepositoryList";
 import CustomDialog from "../../components/Dialog";
 import CreateRepositoryForm from "../../components/CreateRepositoryForm";
@@ -23,10 +22,8 @@ const RepositoriesPage = () => {
     closeCreateRepoDialog,
   } = useRepositoriesPage();
 
-  const classes = useStyles();
-
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container maxWidth="lg" sx={{ marginTop: "1.5rem" }}>
       <Box display="flex">
         <Box>
           <Typography variant="h5" gutterBottom>
